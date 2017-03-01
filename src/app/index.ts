@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {FormioModule} from 'ng2-formio';
 import {routing, RootComponent} from './routes';
 
 import {MainComponent} from './main';
@@ -10,6 +11,7 @@ import {FooterComponent} from './footer';
 @NgModule({
   imports: [
     BrowserModule,
+    FormioModule,
     routing
   ],
   declarations: [
