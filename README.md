@@ -53,6 +53,9 @@ This application was generated using the amazing [Fountain.js](http://fountainjs
     - `Would you like a router?` **@angular/router**
   - Install Bootstrap SAAS, Bootswatch, and Form.io
     `npm install --save bootstrap-sass bootswatch ng2-formio`
+  - Make the following changes to get started.
+    - https://github.com/formio/ng2-app-starterkit/commit/99a330c3007f54d6559ff3946a7c40e5c5ad9028
+    - https://github.com/formio/ng2-app-starterkit/commit/1d193a105ed94bab61765441dfd311c016bfca25
 
 
 Have fun!
