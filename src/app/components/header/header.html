@@ -11,7 +11,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li routerLinkActive="active"><a routerLink="home"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li routerLinkActive="user" *ngIf="auth.is.administrator"><a routerLink="user"><span class="glyphicon glyphicon-users"></span> Users</a></li>
+        <li routerLinkActive="event"><a routerLink="event"><span class="glyphicon glyphicon-calendar"></span> Events</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active" *ngIf="!auth.authenticated"><a routerLink="auth">Login | Register</a></li>
+        <li *ngIf="auth.authenticated"><a routerLink="home" (click)="auth.logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

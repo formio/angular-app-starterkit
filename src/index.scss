@@ -20,6 +20,10 @@ $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
   height: 2em;
 }
 
+.main {
+  margin-top: 40px;
+}
+
 .logo {
   height: 2em;
   margin-top: -0.5em;
@@ -30,4 +34,5 @@ $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
   padding: 3em;
   color: #777;
   border-top: .05rem solid #e5e5e5;
+  margin-top: 20px;
 }

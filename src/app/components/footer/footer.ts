@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'fountain-footer',
+  selector: 'formio-footer',
   template: require('./footer.html')
 })
 export class FooterComponent {}
