@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "sourceMap": true,
+    "allowJs": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,

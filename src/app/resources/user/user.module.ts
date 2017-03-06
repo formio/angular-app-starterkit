@@ -1,4 +1,4 @@
-import { NgModule, Component, ModuleWithProviders } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppConfig } from '../../../config';
