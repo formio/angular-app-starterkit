@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormioAuthService } from 'ng2-formio/auth';
 
 @Component({
@@ -6,17 +7,20 @@ import { FormioAuthService } from 'ng2-formio/auth';
   template: require('./main.html')
 })
 export class MainComponent {
-  constructor(private service: FormioAuthService) {
+  constructor(
+    private service: FormioAuthService,
+    private router: Router
+  ) {
     this.service.onLogin.subscribe(() => {
-      location.href = '/';
+      this.router.navigate(['/']);
     });
 
     this.service.onLogout.subscribe(() => {
-      location.href = '/';
+      this.router.navigate(['/']);
     });
 
     this.service.onRegister.subscribe(() => {
-      location.href = '/';
+      this.router.navigate(['/']);
     });
   }
 }
