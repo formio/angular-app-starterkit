@@ -17,7 +17,7 @@
     "zone.js": "^0.7.7"
   },
   "devDependencies": {
-    "@types/es6-shim": "^0.31.32",
+    "@types/core-js": "^0.9.36",
     "@types/jasmine": "^2.5.43",
     "@types/node": "^7.0.5",
     "angular2-load-children-loader": "^0.1.3",
