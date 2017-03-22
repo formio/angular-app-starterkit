@@ -11,7 +11,7 @@
     "types": [
       "node",
       "jasmine",
-      "es6-shim"
+      "core-js"
     ]
   },
   "compileOnSave": false,
