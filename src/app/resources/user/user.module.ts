@@ -59,7 +59,6 @@ export class UserViewComponent extends FormioResourceViewComponent {
   providers: [
     FormioResourceService,
     {provide: FormioResourceConfig, useValue: {
-      app: AppConfig,
       name: 'user',
       form: 'user'
     }}

@@ -2,7 +2,6 @@
   "title": "Example Application",
   "version": "2.0.0",
   "description": "An Example Application",
-  "name": "example",
   "roles": {
     "administrator": {
       "title": "Administrator",
@@ -238,7 +237,7 @@
     }
   },
   "actions": {
-    "userUserSave": {
+    "user:userSave": {
       "title": "Save Submission",
       "name": "save",
       "form": "user",
@@ -251,7 +250,7 @@
         "before"
       ]
     },
-    "userUserRole": {
+    "user:userRole": {
       "title": "Role Assignment",
       "name": "role",
       "form": "user",
@@ -268,7 +267,7 @@
         "after"
       ]
     },
-    "adminAdminSave": {
+    "admin:adminSave": {
       "title": "Save Submission",
       "name": "save",
       "form": "admin",
@@ -281,7 +280,7 @@
         "before"
       ]
     },
-    "adminAdminRole": {
+    "admin:adminRole": {
       "title": "Role Assignment",
       "name": "role",
       "form": "admin",
@@ -298,7 +297,7 @@
         "after"
       ]
     },
-    "userLoginUserLogin": {
+    "userLogin:userLogin": {
       "title": "Login",
       "name": "login",
       "form": "userLogin",
@@ -318,7 +317,7 @@
         "before"
       ]
     },
-    "userRegisterUserRegisterSave": {
+    "userRegister:userRegisterSave": {
       "title": "Save Submission",
       "name": "save",
       "form": "userRegister",
@@ -340,7 +339,7 @@
         "before"
       ]
     },
-    "userRegisterUserRegisterLogin": {
+    "userRegister:userRegisterLogin": {
       "title": "Login",
       "name": "login",
       "form": "userRegister",
@@ -359,10 +358,23 @@
         "before"
       ]
     },
-    "eventSave": {
+    "event:save": {
       "title": "Save Submission",
       "name": "save",
       "form": "event",
+      "priority": 10,
+      "method": [
+        "create",
+        "update"
+      ],
+      "handler": [
+        "before"
+      ]
+    },
+    "activity:save": {
+      "title": "Save Submission",
+      "name": "save",
+      "form": "activity",
       "priority": 10,
       "method": [
         "create",
@@ -846,6 +858,224 @@
           "disableOnInvalid": false,
           "theme": "primary",
           "type": "button"
+        }
+      ],
+      "access": [
+        {
+          "type": "create_all",
+          "roles": []
+        },
+        {
+          "type": "read_all",
+          "roles": [
+            "administrator",
+            "authenticated",
+            "anonymous"
+          ]
+        },
+        {
+          "type": "update_all",
+          "roles": []
+        },
+        {
+          "type": "delete_all",
+          "roles": []
+        },
+        {
+          "type": "create_own",
+          "roles": []
+        },
+        {
+          "type": "read_own",
+          "roles": []
+        },
+        {
+          "type": "update_own",
+          "roles": []
+        },
+        {
+          "type": "delete_own",
+          "roles": []
+        },
+        {
+          "type": "team_read",
+          "roles": []
+        },
+        {
+          "type": "team_write",
+          "roles": []
+        },
+        {
+          "type": "team_admin",
+          "roles": []
+        }
+      ],
+      "submissionAccess": [
+        {
+          "type": "create_all",
+          "roles": []
+        },
+        {
+          "type": "read_all",
+          "roles": []
+        },
+        {
+          "type": "update_all",
+          "roles": []
+        },
+        {
+          "type": "delete_all",
+          "roles": []
+        },
+        {
+          "type": "create_own",
+          "roles": [
+            "authenticated"
+          ]
+        },
+        {
+          "type": "read_own",
+          "roles": [
+            "authenticated"
+          ]
+        },
+        {
+          "type": "update_own",
+          "roles": [
+            "authenticated"
+          ]
+        },
+        {
+          "type": "delete_own",
+          "roles": [
+            "authenticated"
+          ]
+        },
+        {
+          "type": "team_read",
+          "roles": []
+        },
+        {
+          "type": "team_write",
+          "roles": []
+        },
+        {
+          "type": "team_admin",
+          "roles": []
+        }
+      ]
+    },
+    "activity": {
+      "title": "Activity",
+      "type": "resource",
+      "name": "activity",
+      "path": "activity",
+      "display": "form",
+      "tags": [],
+      "components": [
+        {
+          "conditional": {
+            "eq": "",
+            "when": null,
+            "show": ""
+          },
+          "tags": [],
+          "type": "resource",
+          "defaultPermission": "",
+          "validate": {
+            "required": false
+          },
+          "clearOnHide": true,
+          "persistent": true,
+          "protected": false,
+          "multiple": false,
+          "searchFields": "",
+          "selectFields": "",
+          "template": "<span>{{ item.data.title }}</span>",
+          "defaultValue": "",
+          "project": "project",
+          "resource": "event",
+          "placeholder": "The event which this activity is a part of.",
+          "key": "event",
+          "label": "Event",
+          "tableView": true,
+          "input": true
+        },
+        {
+          "tags": [],
+          "type": "textfield",
+          "conditional": {
+            "eq": "",
+            "when": null,
+            "show": ""
+          },
+          "validate": {
+            "customPrivate": false,
+            "custom": "",
+            "pattern": "",
+            "maxLength": "",
+            "minLength": "",
+            "required": false
+          },
+          "clearOnHide": true,
+          "persistent": true,
+          "unique": false,
+          "protected": false,
+          "defaultValue": "",
+          "multiple": false,
+          "suffix": "",
+          "prefix": "",
+          "placeholder": "",
+          "key": "name",
+          "label": "Name",
+          "inputMask": "",
+          "inputType": "text",
+          "tableView": true,
+          "input": true
+        },
+        {
+          "conditional": {
+            "eq": "",
+            "when": null,
+            "show": ""
+          },
+          "tags": [],
+          "type": "textarea",
+          "validate": {
+            "custom": "",
+            "pattern": "",
+            "maxLength": "",
+            "minLength": "",
+            "required": false
+          },
+          "clearOnHide": true,
+          "wysiwyg": false,
+          "persistent": true,
+          "protected": false,
+          "defaultValue": "",
+          "multiple": false,
+          "rows": 3,
+          "suffix": "",
+          "prefix": "",
+          "placeholder": "",
+          "key": "description",
+          "label": "Description",
+          "tableView": true,
+          "input": true
+        },
+        {
+          "type": "button",
+          "theme": "primary",
+          "disableOnInvalid": false,
+          "action": "submit",
+          "block": false,
+          "rightIcon": "",
+          "leftIcon": "",
+          "size": "md",
+          "key": "submit",
+          "tableView": false,
+          "label": "Submit",
+          "input": true
         }
       ],
       "access": [

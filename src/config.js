@@ -15,7 +15,6 @@ export const AppConfig = {
 };
 
 export const AuthConfig = {
-  app: AppConfig,
   login: {
     form: 'user/login'
   },

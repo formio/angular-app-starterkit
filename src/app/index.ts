@@ -1,6 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormioModule } from 'ng2-formio';
+import { FormioModule, FormioAppConfig } from 'ng2-formio';
+import { FormioResources } from 'ng2-formio/resource';
 import { FormioAuthService, FormioAuthConfig } from 'ng2-formio/auth';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main';
@@ -9,7 +10,7 @@ import { HeaderComponent } from './components/header/header';
 import { HeroComponent } from './components/hero/hero';
 import { FooterComponent } from './components/footer/footer';
 import { FormioGrid } from 'ng2-formio/grid';
-import { AuthConfig } from '../config';
+import { AuthConfig, AppConfig } from '../config';
 
 @Component({
   template: '<div class="container"><router-outlet></router-outlet></div>'
@@ -75,7 +76,9 @@ export const routes: Routes = [
     AuthContainerComponent
   ],
   providers: [
+    FormioResources,
     FormioAuthService,
+    {provide: FormioAppConfig, useValue: AppConfig},
     {provide: FormioAuthConfig, useValue: AuthConfig}
   ],
   bootstrap: [
