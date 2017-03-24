@@ -7,6 +7,7 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
+    "lib": ["es2017", "dom"],
     "typeRoots": ["node_modules/@types/"],
     "types": [
       "node",
