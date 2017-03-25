@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormioAuthService } from 'ng2-formio/auth';
+import { FormioResources } from 'ng2-formio/resource';
 
 @Component({
   selector: 'formio-app',
@@ -8,18 +9,27 @@ import { FormioAuthService } from 'ng2-formio/auth';
 })
 export class MainComponent {
   constructor(
-    private service: FormioAuthService,
+    private auth: FormioAuthService,
+    private resources: FormioResources,
     private router: Router
   ) {
-    this.service.onLogin.subscribe(() => {
+    this.auth.onLogin.subscribe(() => {
       this.router.navigate(['/']);
     });
 
-    this.service.onLogout.subscribe(() => {
+    this.auth.onLogout.subscribe(() => {
       this.router.navigate(['/']);
     });
 
-    this.service.onRegister.subscribe(() => {
+    this.auth.onRegister.subscribe(() => {
+      this.router.navigate(['/']);
+    });
+
+    this.auth.onError.subscribe(() => {
+      this.router.navigate(['/']);
+    });
+
+    this.resources.onError.subscribe(() => {
       this.router.navigate(['/']);
     });
   }
