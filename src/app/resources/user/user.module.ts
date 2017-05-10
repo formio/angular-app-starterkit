@@ -43,8 +43,8 @@ import {
     '</div>'
 })
 export class UserViewComponent extends FormioResourceViewComponent {
-  constructor(service: FormioResourceService) {
-    super(service);
+  constructor(public service: FormioResourceService, public config: FormioResourceConfig) {
+    super(service, config);
   }
 }
 

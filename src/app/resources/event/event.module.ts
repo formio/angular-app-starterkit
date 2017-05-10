@@ -19,7 +19,7 @@ import {
   template: require('./event.html')
 })
 export class EventResourceComponent extends FormioResourceComponent {
-  constructor(private service: FormioResourceService, private route: ActivatedRoute) {
+  constructor(public service: FormioResourceService, public route: ActivatedRoute) {
     super(service, route);
   }
 }
