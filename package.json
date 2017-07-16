@@ -1,24 +1,23 @@
 {
   "dependencies": {
-    "@angular/common": "^4.1.3",
-    "@angular/compiler": "^4.1.3",
-    "@angular/core": "^4.1.3",
-    "@angular/http": "^4.1.3",
-    "@angular/platform-browser": "^4.1.3",
-    "@angular/platform-browser-dynamic": "^4.1.3",
-    "@angular/router": "^4.1.3",
+    "@angular/common": "^4.3.0",
+    "@angular/compiler": "^4.3.0",
+    "@angular/core": "^4.3.0",
+    "@angular/http": "^4.3.0",
+    "@angular/platform-browser": "^4.3.0",
+    "@angular/platform-browser-dynamic": "^4.3.0",
+    "@angular/router": "^4.3.0",
     "bootstrap-sass": "^3.3.7",
     "bootswatch": "^3.3.7",
     "core-js": "^2.4.1",
-    "formiojs": "^2.9.3",
+    "formiojs": "^2.13.0",
     "lodash": "^4.17.4",
-    "ng2-bootstrap": "^1.6.3",
-    "ng2-formio": "^1.0.0-rc.25",
-    "rxjs": "^5.4.0",
-    "zone.js": "^0.8.11"
+    "ng2-formio": "^1.0.0-rc.34",
+    "rxjs": "^5.4.2",
+    "zone.js": "0.8.12"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.37",
+    "@types/core-js": "^0.9.42",
     "@types/jasmine": "^2.5.43",
     "@types/node": "^7.0.8",
     "angular2-load-children-loader": "^0.1.3",
@@ -60,9 +59,14 @@
     "style-loader": "^0.13.1",
     "tslint": "^4.4.2",
     "tslint-loader": "^3.4.2",
-    "typescript": "^2.1.0",
-    "webpack": "^2.5.1"
+    "typescript": "^2.4.1",
+    "webpack": "^2.7.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/formio/ng2-app-starterkit.git"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "gulp",
     "serve": "gulp serve",
