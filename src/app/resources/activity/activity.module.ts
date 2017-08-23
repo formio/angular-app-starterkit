@@ -7,7 +7,7 @@ import {
   FormioResourceRoutes,
   FormioResourceConfig,
   FormioResourceService
-} from 'ng2-formio/resource';
+} from 'angular-formio/resource';
 
 @NgModule({
   imports: [

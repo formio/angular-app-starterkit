@@ -8,7 +8,7 @@ import {
   FormioResourceConfig,
   FormioResourceService,
   FormioResourceComponent
-} from 'ng2-formio/resource';
+} from 'angular-formio/resource';
 
 // provide our own Event resource page.
 @Component({

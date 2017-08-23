@@ -1,15 +1,15 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormioModule, FormioAppConfig } from 'ng2-formio';
-import { FormioResources } from 'ng2-formio/resource';
-import { FormioAuthService, FormioAuthConfig } from 'ng2-formio/auth';
+import { FormioModule, FormioAppConfig } from 'angular-formio';
+import { FormioResources } from 'angular-formio/resource';
+import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main';
 import { HomeComponent } from './components/home/home';
 import { HeaderComponent } from './components/header/header';
 import { HeroComponent } from './components/hero/hero';
 import { FooterComponent } from './components/footer/footer';
-import { FormioGrid } from 'ng2-formio/grid';
+import { FormioGridModule } from 'angular-formio/grid';
 import { AuthConfig, AppConfig } from '../config';
 
 @Component({
@@ -63,7 +63,7 @@ export const routes: Routes = [
   imports: [
     BrowserModule,
     FormioModule,
-    FormioGrid,
+    FormioGridModule,
     RouterModule.forRoot(routes)
   ],
   declarations: [

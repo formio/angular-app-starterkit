@@ -8,7 +8,7 @@ import {
   FormioResourceConfig,
   FormioResourceViewComponent,
   FormioResourceService
-} from 'ng2-formio/resource';
+} from 'angular-formio/resource';
 
 /**
  * Override the FormioResourceViewComponent to provide our own template and business logic.

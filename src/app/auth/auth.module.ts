@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormioAuth, FormioAuthRoutes } from 'ng2-formio/auth';
+import { FormioAuthModule, FormioAuthRoutes } from 'angular-formio/auth';
+const authRoutes = FormioAuthRoutes();
 @NgModule({
   imports: [
-    FormioAuth,
-    RouterModule.forChild(FormioAuthRoutes())
+    FormioAuthModule,
+    RouterModule.forChild(authRoutes)
   ]
 })
 export class AuthModule {}
