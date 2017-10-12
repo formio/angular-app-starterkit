@@ -8,11 +8,11 @@
     "@angular/platform-browser": "^4.3.5",
     "@angular/platform-browser-dynamic": "^4.3.5",
     "@angular/router": "^4.3.5",
-    "angular-formio": "^1.0.1",
+    "angular-formio": "^1.4.0",
     "bootstrap-sass": "^3.3.7",
     "bootswatch": "^3.3.7",
     "core-js": "^2.4.1",
-    "formiojs": "^2.14.1",
+    "formiojs": "^2.19.3",
     "lodash": "^4.17.4",
     "rxjs": "^5.4.2",
     "zone.js": "0.8.12"
