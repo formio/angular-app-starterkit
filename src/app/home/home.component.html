@@ -1,0 +1,7 @@
+<app-hero></app-hero>
+<div class="container">
+  <formio *ngIf="!auth.authenticated" src="https://examples.form.io/example"></formio>
+  <div class="well text-center" *ngIf="auth.authenticated">
+    <h3 *ngIf="auth.user.data">You are logged in as <strong>{{ auth.user.data.email }}</strong>!</h3>
+  </div>
+</div>

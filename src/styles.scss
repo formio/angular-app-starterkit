@@ -1,0 +1,25 @@
+/*@import "~bootswatch/dist/yeti/_variables.scss";*/
+@import "~bootstrap/scss/bootstrap.scss";
+/*@import "~bootswatch/dist/yeti/_bootswatch.scss";*/
+
+.logo {
+  height: 2em;
+  margin-top: -0.5em;
+}
+
+.text-blue {
+  color: #127ABF;
+}
+
+.text-green {
+  color: #449414;
+}
+
+.hero-image {
+  display: inline;
+  height: 2em;
+}
+
+#main {
+  margin-top: 10px;
+}
