@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormioAuthService } from 'angular-formio/auth';
+import FormioUtils from 'formiojs/utils';
 import {
   FormioResourceCreateComponent,
   FormioResourceService,
   FormioResourceConfig
 } from 'angular-formio/resource';
-
-const FormioUtils = require('formiojs/utils');
 
 @Component({
   selector: 'app-participant-create',

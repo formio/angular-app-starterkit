@@ -11,6 +11,10 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 
+import { AuthModule } from './auth/auth.module';
+import { EventModule } from './event/event.module';
+import { UserModule } from './user/user.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,15 +37,15 @@ import { HeroComponent } from './hero/hero.component';
       },
       {
         path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
+        loadChildren: () => AuthModule
       },
       {
         path: 'event',
-        loadChildren: './event/event.module#EventModule'
+        loadChildren: () => EventModule
       },
       {
         path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: () => UserModule
       }
     ])
   ],
