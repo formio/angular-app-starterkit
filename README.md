@@ -28,31 +28,31 @@ the data for this application.
 5. After the project is created, copy the API path of your project. It should look like https://yourproject.form.io
 6. Make the following change to the **```src/config.ts```** file, and replace ```[PROJECT_API]``` with the api of your project.
 
-```ts
-import { FormioAppConfig } from 'angular-formio';
-import { FormioAuthConfig } from 'angular-formio/auth';
+    ```ts
+    import { FormioAppConfig } from 'angular-formio';
+    import { FormioAuthConfig } from 'angular-formio/auth';
 
-export const AppConfig: FormioAppConfig = {
-  appUrl: '[PROJECT_API]',
-  apiUrl: 'https://api.form.io',
-  icons: 'fontawesome'
-};
+    export const AppConfig: FormioAppConfig = {
+      appUrl: '[PROJECT_API]',
+      apiUrl: 'https://api.form.io',
+      icons: 'fontawesome'
+    };
 
-export const AuthConfig: FormioAuthConfig = {
-  login: {
-    form: 'user/login'
-  },
-  register: {
-    form: 'user/register'
-  }
-};
-```
+    export const AuthConfig: FormioAuthConfig = {
+      login: {
+        form: 'user/login'
+      },
+      register: {
+        form: 'user/register'
+      }
+    };
+    ```
 
 7. Launch the application using...
 
-```
-ng serve
-```
+    ```
+    ng serve
+    ```
 
 You are now hosting all of the data from this application within your own Form.io project.
 
@@ -61,9 +61,9 @@ Build from Scratch
 
 #### Setup
 ```
-  ng new angular-app-starterkit --style=sass
-  cd angular-app-starterkit```
-  ng serve
+ng new angular-app-starterkit --style=sass
+cd angular-app-starterkit```
+ng serve
 ```
 
 #### Install Font-Awesome
