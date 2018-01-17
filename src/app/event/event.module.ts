@@ -32,10 +32,13 @@ eventResourceRoutes[2].children.push({
   declarations: [EventViewComponent, EventResourceComponent],
   providers: [
     FormioResourceService,
-    {provide: FormioResourceConfig, useValue: {
-      name: 'event',
-      form: 'event'
-    }}
+    {
+      provide: FormioResourceConfig,
+      useValue: {
+        name: 'event',
+        form: 'event'
+      }
+    }
   ]
 })
 export class EventModule { }

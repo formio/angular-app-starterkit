@@ -22,11 +22,14 @@ import { ParticipantCreateComponent } from './participant-create/participant-cre
   declarations: [ParticipantCreateComponent],
   providers: [
     FormioResourceService,
-    {provide: FormioResourceConfig, useValue: {
-      name: 'participant',
-      form: 'participant',
-      parents: ['event']
-    }}
+    {
+      provide: FormioResourceConfig,
+      useValue: {
+        name: 'participant',
+        form: 'participant',
+        parents: ['event']
+      }
+    }
   ]
 })
 export class ParticipantModule { }
