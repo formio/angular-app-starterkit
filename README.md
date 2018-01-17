@@ -98,9 +98,9 @@ ng serve
  - ```ng g component home```
  - ***/src/app/home/home.component.html***
     ```html
-<div class="jumbotron">
-  <h3>Welcome to the Event Manager!</h3>
-</div>
+    <div class="jumbotron">
+      <h3>Welcome to the Event Manager!</h3>
+    </div>
     ```
 
 ##### Adding routes for Home Component
