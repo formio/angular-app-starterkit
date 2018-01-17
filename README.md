@@ -21,7 +21,9 @@ the data for this application.
 1. First login or create an account @ [Form.io](https://portal.form.io)
 2. Create a new project called "Event Manager"
 3. Under Advanced Options, click on **Upload A Project Template**, then select the **```/src/project.json```** file from this repository.
-  ![](https://monosnap.com/file/yITvSniWzfdYJPLdfhC4bWHZEd9LBq.png)
+  
+    ![](https://monosnap.com/file/yITvSniWzfdYJPLdfhC4bWHZEd9LBq.png)
+  
 4. Click on **Create Project** button.
 5. After the project is created, copy the API path of your project. It should look like https://yourproject.form.io
 6. Make the following change to the **```src/config.ts```** file, and replace ```[PROJECT_API]``` with the api of your project.
