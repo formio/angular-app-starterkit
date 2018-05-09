@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
-    "angular-formio": "^2.0.0-alpha.4",
+    "angular-formio": "^2.0.0-alpha.5",
     "bootstrap": "^4.1.1",
     "bootswatch": "^4.1.1",
     "core-js": "^2.5.6",
