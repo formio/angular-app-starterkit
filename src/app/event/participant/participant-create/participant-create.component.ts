@@ -6,8 +6,7 @@ import {
   FormioResourceService,
   FormioResourceConfig
 } from 'angular-formio/resource';
-
-const FormioUtils = require('formiojs/utils');
+import FormioUtils from 'formiojs/utils';
 
 @Component({
   selector: 'app-participant-create',
