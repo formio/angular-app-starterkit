@@ -8,18 +8,15 @@ import {
   FormioResourceConfig,
   FormioResourceService
 } from 'angular-formio/resource';
-import { ParticipantCreateComponent } from './participant-create/participant-create.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormioModule,
     FormioResource,
-    RouterModule.forChild(FormioResourceRoutes({
-      create: ParticipantCreateComponent
-    }))
+    RouterModule.forChild(FormioResourceRoutes())
   ],
-  declarations: [ParticipantCreateComponent],
+  declarations: [],
   providers: [
     FormioResourceService,
     {
@@ -27,7 +24,14 @@ import { ParticipantCreateComponent } from './participant-create/participant-cre
       useValue: {
         name: 'participant',
         form: 'participant',
-        parents: ['event', {field: 'user', resource: 'currentUser'}]
+        parents: [
+          'event',
+          {
+            field: 'user',
+            resource: 'currentUser',
+            filter: false
+          }
+        ]
       }
     }
   ]
