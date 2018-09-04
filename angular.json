@@ -22,8 +22,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/font-awesome/scss/font-awesome.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -73,8 +72,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.scss",
-              "node_modules/font-awesome/scss/font-awesome.scss"
+              "src/styles.scss"
             ],
             "assets": [
               "src/assets",

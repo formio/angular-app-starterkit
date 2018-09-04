@@ -5,11 +5,14 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="home"><i class="fa fa-home"></i></a>
       </li>
+      <li class="nav-item" routerLinkActive="form" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="form"><i class="fa fa-wpforms"></i> Forms</a>
+      </li>
       <li class="nav-item" routerLinkActive="user" *ngIf="auth.is.administrator">
-        <a class="nav-link" routerLink="user">Users</a>
+        <a class="nav-link" routerLink="employee"><i class="fa fa-users"></i> Employees</a>
       </li>
       <li class="nav-item" routerLinkActive="event" *ngIf="auth.authenticated">
-        <a class="nav-link" routerLink="event">Events</a>
+        <a class="nav-link" routerLink="event"><i class="fa fa-calendar"></i> Events</a>
       </li>
     </ul>
     <ul class="nav navbar-nav ml-auto">

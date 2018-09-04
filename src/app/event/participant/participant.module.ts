@@ -27,7 +27,7 @@ import { ParticipantCreateComponent } from './participant-create/participant-cre
       useValue: {
         name: 'participant',
         form: 'participant',
-        parents: ['event']
+        parents: ['event', {field: 'user', resource: 'currentUser'}]
       }
     }
   ]

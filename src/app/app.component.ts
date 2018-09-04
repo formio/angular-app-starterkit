@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormioResources } from 'angular-formio/resource';
 import { FormioAuthService } from 'angular-formio/auth';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(private auth: FormioAuthService, private router: Router) {
+  constructor(
+    private auth: FormioAuthService,
+    private router: Router,
+    public resources: FormioResources
+  ) {
     this.auth.onLogin.subscribe(() => {
       this.router.navigate(['/home']);
     });

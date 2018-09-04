@@ -18,9 +18,9 @@ import {
   providers: [
     FormioResourceService,
     {provide: FormioResourceConfig, useValue: {
-      name: 'user',
-      form: 'user'
+      name: 'employee',
+      form: 'employee'
     }}
   ]
 })
-export class UserModule { }
+export class EmployeeModule { }
