@@ -1,33 +1,61 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormioModule } from 'angular-formio';
 import {
   FormioResource,
-  FormioResourceRoutes,
   FormioResourceConfig,
-  FormioResourceService
+  FormioResourceService,
+  FormioResourceIndexComponent,
+  FormioResourceCreateComponent,
+  FormioResourceEditComponent,
+  FormioResourceDeleteComponent
 } from 'angular-formio/resource';
 import { EventViewComponent } from './event-view/event-view.component';
 import { EventResourceComponent } from './event-resource/event-resource.component';
-import { ParticipantModule } from './participant/participant.module';
-
-const eventResourceRoutes: Routes = FormioResourceRoutes({
-  view: EventViewComponent,
-  resource: EventResourceComponent
-});
-
-eventResourceRoutes[2].children.push({
-  path: 'participant',
-  loadChildren: () => ParticipantModule
-});
 
 @NgModule({
   imports: [
     CommonModule,
     FormioModule,
     FormioResource,
-    RouterModule.forChild(eventResourceRoutes)
+    RouterModule.forChild([
+      {
+        path: '',
+        component: FormioResourceIndexComponent
+      },
+      {
+        path: 'new',
+        component: FormioResourceCreateComponent
+      },
+      {
+        path: ':id',
+        component: EventResourceComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'view',
+            pathMatch: 'full'
+          },
+          {
+            path: 'view',
+            component: EventViewComponent
+          },
+          {
+            path: 'edit',
+            component: FormioResourceEditComponent
+          },
+          {
+            path: 'delete',
+            component: FormioResourceDeleteComponent
+          },
+          {
+            path: 'participant',
+            loadChildren: './participant/participant.module#ParticipantModule'
+          }
+        ]
+      }
+    ])
   ],
   declarations: [EventViewComponent, EventResourceComponent],
   providers: [

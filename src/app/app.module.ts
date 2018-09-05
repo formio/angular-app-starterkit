@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormioModule, FormioAppConfig } from 'angular-formio';
-import { FormManagerModule, FormManagerService, FormManagerConfig } from 'angular-formio/manager';
-import { FormioAuth, FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
+import { FormManagerService, FormManagerConfig } from 'angular-formio/manager';
+import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
 import { FormioResources } from 'angular-formio/resource';
 import { AuthConfig, AppConfig } from '../config';
 
@@ -11,10 +11,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
-
-import { EventModule } from './event/event.module';
-import { EmployeeModule } from './employee/employee.module';
-import { LoginComponent } from './auth/login.component';
 
 @NgModule({
   declarations: [
@@ -38,21 +34,19 @@ import { LoginComponent } from './auth/login.component';
       },
       {
         path: 'auth',
-        loadChildren: () => FormioAuth.forChild({
-          login: LoginComponent
-        })
+        loadChildren: './auth/auth.module#AuthModule'
       },
       {
         path: 'form',
-        loadChildren: () => FormManagerModule.forChild()
+        loadChildren: './form/form.module#FormModule'
       },
       {
         path: 'event',
-        loadChildren: () => EventModule
+        loadChildren: './event/event.module#EventModule'
       },
       {
         path: 'employee',
-        loadChildren: () => EmployeeModule
+        loadChildren: './employee/employee.module#EmployeeModule'
       }
     ])
   ],
