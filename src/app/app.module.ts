@@ -50,7 +50,7 @@ import './components/CheckMatrix';
         path: 'employee',
         loadChildren: './employee/employee.module#EmployeeModule'
       }
-    ])
+    ], {useHash: true})
   ],
   providers: [
     FormioResources,
