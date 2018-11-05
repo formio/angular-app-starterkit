@@ -16,6 +16,11 @@ export class AppComponent {
     private router: Router,
     public resources: FormioResources
   ) {
+    this.auth.ready.then(() => {
+      if (!this.auth.authenticated) {
+        this.router.navigate(['/auth/login']);
+      }
+    });
     this.auth.onLogin.subscribe(() => {
       this.router.navigate(['/home']);
     });
