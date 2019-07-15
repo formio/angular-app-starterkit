@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 
 import './components/CheckMatrix';
+import {AuthGuardService} from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import './components/CheckMatrix';
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'auth',
@@ -40,15 +42,18 @@ import './components/CheckMatrix';
       },
       {
         path: 'form',
-        loadChildren: './form/form.module#FormModule'
+        loadChildren: './form/form.module#FormModule',
+        canActivate: [AuthGuardService]
       },
       {
         path: 'event',
-        loadChildren: './event/event.module#EventModule'
+        loadChildren: './event/event.module#EventModule',
+        canActivate: [AuthGuardService]
       },
       {
         path: 'employee',
-        loadChildren: './employee/employee.module#EmployeeModule'
+        loadChildren: './employee/employee.module#EmployeeModule',
+        canActivate: [AuthGuardService]
       }
     ], {useHash: true})
   ],
@@ -56,6 +61,7 @@ import './components/CheckMatrix';
     FormioResources,
     FormioAuthService,
     FormManagerService,
+    AuthGuardService,
     {provide: FormManagerConfig, useValue: {
       tag: 'common'
     }},
