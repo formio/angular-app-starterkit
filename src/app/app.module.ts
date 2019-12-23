@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 
-import './components/CheckMatrix';
+// import './components/CheckMatrix';
 
 @NgModule({
   declarations: [

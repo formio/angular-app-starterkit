@@ -3,8 +3,8 @@
  *
  * Get the base component class by referencing Formio.Components.components map.
  */
-import BaseComponent from 'formiojs/components/base/Base';
-import TableComponent from 'formiojs/components/table/Table';
+import Base from 'formiojs/components/_classes/component/Component';
+import editForm from 'formiojs/components/table/Table.form';
 import Components from 'formiojs/components/Components';
 
 /**
@@ -18,132 +18,160 @@ import Components from 'formiojs/components/Components';
  * @param data
  * @constructor
  */
-export default class CheckMatrixComponent extends BaseComponent {
+export default class CheckMatrix extends Base {
+  constructor(component, options, data) {
+    super(component, options, data);
+  }
 
-  /**
-   * Define what the default JSON schema for this component is. We will derive from the BaseComponent
-   * schema and provide our overrides to that.
-   * @return {*}
-   */
   static schema() {
-    return BaseComponent.schema({
+    return Base.schema({
       type: 'checkmatrix',
       numRows: 3,
       numCols: 3
     });
   }
 
+  static builderInfo = {
+    title: 'Check Matrix',
+    group: 'basic',
+    icon: 'fa fa-table',
+    weight: 70,
+    documentation: 'http://help.form.io/userguide/#table',
+    schema: CheckMatrix.schema()
+  }
+
+  static editForm = editForm
+
   /**
-   * Register this component to the Form Builder by providing the "builderInfo" object.
+   * Render returns an html string of the fully rendered component.
+   *
+   * @param children - If this class is extendended, the sub string is passed as children.
+   * @returns {string}
    */
-  static get builderInfo() {
-    return {
-      title: 'Check Matrix',
-      group: 'basic',
-      icon: 'fa fa-table',
-      weight: 70,
-      documentation: 'http://help.form.io/userguide/#table',
-      schema: CheckMatrixComponent.schema()
-    };
+  render(children) {
+    // To make this dynamic, we could call this.renderTemplate('templatename', {}).
+
+    let tableClass = 'table ';
+    ['striped', 'bordered', 'hover', 'condensed'].forEach((prop) => {
+      if (this.component[prop]) {
+      tableClass += `table-${prop} `;
+    }
+  });
+
+    let content = '';
+
+    for (let i = 0; i < this.component.numRows; i++) {
+      let row = '<tr>';
+      for (let j = 0; j < this.component.numCols; j++) {
+        let cell = '<td>';
+
+        cell += this.renderTemplate('input', {
+          input: {
+            type: 'input',
+            ref: `${this.component.key}-${i}`,
+            attr: {
+              id: `${this.component.key}-${i}-${j}`,
+              class: 'form-control',
+              type: 'checkbox',
+            }
+          }
+        });
+
+        cell += '</td>';
+        row += cell;
+      }
+      row += '</tr>';
+      content += row;
+    }
+
+    // Calling super.render will wrap it html as a component.
+    return super.render(`
+<table class=${tableClass}>
+  <tbody>
+     ${content}
+  </tbody>
+</table>
+    `);
   }
 
   /**
-   * Tell the renderer how to build this component using DOM manipulation.
+   * After the html string has been mounted into the dom, the dom element is returned here. Use refs to find specific
+   * elements to attach functionality to.
+   *
+   * @param element
+   * @returns {Promise}
    */
-  build() {
-    this.element = this.ce('div', {
-      class: 'table-responsive'
-    });
-    this.createLabel(this.element);
+  attach(element) {
+    const refs = {};
 
-    var tableClass = 'table ';
-    ['striped', 'bordered', 'hover', 'condensed'].forEach(function(prop) {
-      if (this.component[prop]) {
-        tableClass += `table-${prop} `;
-      }
-    }.bind(this));
+    for (let i = 0; i < this.component.numRows; i++) {
+      refs[`${this.component.key}-${i}`] = 'multiple';
+    }
 
-    var table = this.ce('table', {
-      class: tableClass
-    });
+    this.loadRefs(element, refs);
 
-    // Build the body.
-    var tbody = this.ce('tbody');
-    this.inputs = [];
     this.checks = [];
     for (let i = 0; i < this.component.numRows; i++) {
-      var tr = this.ce('tr');
-      this.checks.push([]);
-      for (let j = 0; j < this.component.numCols; j++) {
-        var td = this.ce('td');
-        this.checks[i][j] = this.ce('input', {
-          type: 'checkbox'
-        });
-        this.addInput(this.checks[i][j], td);
-        tr.appendChild(td);
-      }
-      tbody.appendChild(tr);
+      this.checks[i] = Array.prototype.slice.call(this.refs[`${this.component.key}-${i}`], 0);
+
+      // Attach click events to each input in the row
+      this.checks[i].forEach(input => {
+        this.addEventListener(input, 'click', () => this.updateValue())
+    });
     }
-    table.appendChild(tbody);
-    this.element.appendChild(table);
+
+    // Allow basic component functionality to attach like field logic and tooltips.
+    return super.attach(element);
   }
 
   /**
-   * Provide the input element information. Because we are using checkboxes, the change event needs to be
-   * 'click' instead of the default 'change' from the BaseComponent.
+   * Get the value of the component from the dom elements.
    *
-   * @return {{type, component, changeEvent, attr}}
-   */
-  elementInfo() {
-    const info = super.elementInfo();
-    info.changeEvent = 'click';
-    return info;
-  }
-
-  /**
-   * Tell the renderer how to "get" a value from this component.
-   *
-   * @return {Array}
+   * @returns {Array}
    */
   getValue() {
     var value = [];
-    this.checks.forEach((row, rowIndex) => {
+    for (var rowIndex in this.checks) {
+      var row = this.checks[rowIndex];
       value[rowIndex] = [];
-      row.forEach((col, colIndex) => {
+      for (var colIndex in row) {
+        var col = row[colIndex];
         value[rowIndex][colIndex] = !!col.checked;
-      });
-    });
+      }
+    }
     return value;
   }
 
   /**
-   * Tell the renderer how to "set" the value of this component.
+   * Set the value of the component into the dom elements.
    *
    * @param value
-   * @return {boolean}
+   * @returns {boolean}
    */
   setValue(value) {
     if (!value) {
       return;
     }
-    this.checks.forEach((row, rowIndex) => {
+    for (var rowIndex in this.checks) {
+      var row = this.checks[rowIndex];
       if (!value[rowIndex]) {
-        return false;
+        break;
       }
-      row.forEach((col, colIndex) => {
+      for (var colIndex in row) {
+        var col = row[colIndex];
         if (!value[rowIndex][colIndex]) {
           return false;
         }
         let checked = value[rowIndex][colIndex] ? 1 : 0;
         col.value = checked;
         col.checked = checked;
-      });
-    });
+      }
+    }
   }
 }
 
 // Use the table component edit form.
-CheckMatrixComponent.editForm = TableComponent.editForm;
+CheckMatrix.editForm = editForm;
 
 // Register the component to the Formio.Components registry.
-Components.addComponent('checkmatrix', CheckMatrixComponent);
+Components.addComponent('checkmatrix', CheckMatrix);
