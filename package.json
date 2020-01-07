@@ -1,6 +1,6 @@
 {
   "name": "angular-app-starterkit",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -23,12 +23,12 @@
     "@angular/platform-browser": "^7.2.14",
     "@angular/platform-browser-dynamic": "^7.2.14",
     "@angular/router": "^7.2.14",
-    "angular-formio": "^4.4.2",
+    "angular-formio": "^4.4.3",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
     "core-js": "^2.6.0",
     "font-awesome": "^4.7.0",
-    "formiojs": "^4.8.0-rc.11",
+    "formiojs": "^4.8.0-rc.12",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "rxjs": "^6.5.4",
