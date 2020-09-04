@@ -30,7 +30,7 @@
     "font-awesome": "^4.7.0",
     "formiojs": "^4.8.0-rc.12",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"
   },
