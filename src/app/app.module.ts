@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormioModule, FormioAppConfig } from 'angular-formio';
-import { FormManagerService, FormManagerConfig } from 'angular-formio/manager';
-import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
-import { FormioResources } from 'angular-formio/resource';
+import { FormioModule, FormioAppConfig } from '@formio/angular';
+import { FormManagerService, FormManagerConfig } from '@formio/angular/manager';
+import { FormioAuthService, FormioAuthConfig } from '@formio/angular/auth';
+import { FormioResources } from '@formio/angular/resource';
 import { AuthConfig, AppConfig } from '../config';
 
 import { AppComponent } from './app.component';
@@ -36,19 +36,19 @@ import { HeroComponent } from './hero/hero.component';
       },
       {
         path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
       },
       {
         path: 'form',
-        loadChildren: './form/form.module#FormModule'
+        loadChildren: () => import('./form/form.module').then(m => m.FormModule)
       },
       {
         path: 'event',
-        loadChildren: './event/event.module#EventModule'
+        loadChildren: () => import('./event/event.module').then(m => m.EventModule)
       },
       {
         path: 'employee',
-        loadChildren: './employee/employee.module#EmployeeModule'
+        loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
       }
     ], {useHash: true})
   ],

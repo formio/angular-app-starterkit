@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormioAuthService } from 'angular-formio/auth';
+import { FormioAuthService } from '@formio/angular/auth';
 
 @Component({
   selector: 'app-header',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormioResources } from 'angular-formio/resource';
-import { FormioAuthService } from 'angular-formio/auth';
+import { FormioResources } from '@formio/angular/resource';
+import { FormioAuthService } from '@formio/angular/auth';
 
 @Component({
   selector: 'app-root',
