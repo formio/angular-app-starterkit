@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormioModule } from 'angular-formio';
+import { FormioModule } from '@formio/angular';
 import {
   FormioResource,
   FormioResourceConfig,
@@ -10,7 +10,7 @@ import {
   FormioResourceCreateComponent,
   FormioResourceEditComponent,
   FormioResourceDeleteComponent
-} from 'angular-formio/resource';
+} from '@formio/angular/resource';
 import { EventViewComponent } from './event-view/event-view.component';
 import { EventResourceComponent } from './event-resource/event-resource.component';
 

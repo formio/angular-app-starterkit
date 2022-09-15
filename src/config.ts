@@ -1,5 +1,5 @@
-import { FormioAppConfig } from 'angular-formio';
-import { FormioAuthConfig } from 'angular-formio/auth';
+import { FormioAppConfig } from '@formio/angular';
+import { FormioAuthConfig } from '@formio/angular/auth';
 
 export const AppConfig: FormioAppConfig = {
   appUrl: 'https://example.form.io',
