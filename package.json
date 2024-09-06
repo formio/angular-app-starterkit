@@ -1,5 +1,5 @@
 {
-  "name": "angular-app-starterkit",
+  "name": "@formio/angular-app-starterkit",
   "version": "1.8.0",
   "license": "MIT",
   "scripts": {
